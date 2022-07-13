@@ -20,7 +20,7 @@ st.write("""
 функционирование реальной нейронной сети, обученной распознавать рукописные цифры.
 """)
 
-img_pipeline_mnist = Image.open('/app/laboratory4/pictures/pipeline_for_MNIST_2.png') 
+img_pipeline_mnist = Image.open('/app/laboratory4/pictures/pipeline_for_MNIST_3.png') 
 st.image(img_pipeline_mnist, use_column_width='auto', caption='Общая схема лабораторной работы') #width=450
 
 pipe_expander = st.expander("Описание лабораторной работы:")
