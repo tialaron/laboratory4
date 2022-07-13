@@ -20,7 +20,7 @@ st.write("""
 функционирование реальной нейронной сети, обученной распознавать рукописные цифры.
 """)
 
-img_pipeline_mnist = Image.open('/app/laboratory4/pictures/pipeline_for_MNIST.png') 
+img_pipeline_mnist = Image.open('/app/laboratory4/pictures/pipeline_for_MNIST_2.png') 
 st.image(img_pipeline_mnist, use_column_width='auto', caption='Общая схема лабораторной работы') #width=450
 
 pipe_expander = st.expander("Описание лабораторной работы:")
@@ -28,18 +28,28 @@ pipe_expander.markdown(
     """
     \n**Этапы:**
     \n(зелёным обозначены этапы, корректировка которых доступна студенту, красным - этапы, что предобработаны и скорректированы сотрудником лаборатории)
-    \n1. Сбор данных:
-    \nБыл использован учебный датасет по прогнозированию оттока банковских клиентов [(ссылка на данные)](https://www.kaggle.com/datasets/barelydedicated/bank-customer-churn-modeling);
-    \n2. Предобработка данных:
-    \nУдаление ненужных колонок, one hot encoding категориальных переменных, заполнение пропущенных значений. С использованием библиотек [pandas](https://pandas.pydata.org/docs/user_guide/index.html), [matplotlib](https://matplotlib.org/stable/api/index.html), [numpy](https://numpy.org/doc/stable/reference/index.html);
-    \n3. Анализ статистических показателей и графический анализ данных:
-    \nИнструменты для этого - с использованием библиотек [pandas](https://pandas.pydata.org/docs/user_guide/index.html), [matplotlib](https://matplotlib.org/stable/api/index.html);
-    \n4. Выбор baseline-модели, подбор лучших гиперпараметов, обучение и валидация модели с ними:
-    \nС использованием библиотек [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier), [pandas](https://pandas.pydata.org/docs/user_guide/index.html), [matplotlib](https://matplotlib.org/stable/api/index.html);
-    \n5. Работа с дисбалансом классов: даунсемплинг данных, обучение и валидация модели:
-    \nС использованием библиотек [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier), [pandas](https://pandas.pydata.org/docs/user_guide/index.html), [matplotlib](https://matplotlib.org/stable/api/index.html);
-    \n6. Сравнение результатов: если результат неудовлетворительный, проводится корректировка гиперпараметров и функций из п.4 и п.5;
-    \n7. Оформление микросервиса Streamlit, выгрузка на сервер: проводится сотрудником лаборатории, используется студентами РАНХиГС
+    \n1. База данных MNIST:
+    \nБыла использована стандартная база данных MNIST, состоящая из 60000 изображений рукописных цифр размером 28х28 пикселей. [(ссылка на данные)](http://yann.lecun.com/exdb/mnist/);
+    \n2. Библиотека слоев:
+    \nЗагрузка библиотеки функций-слоев из которых состоит нейронная сеть. [tensorflow](https://www.tensorflow.org/), [numpy](https://numpy.org/doc/stable/reference/index.html);
+    \n3. Настройка модели:
+    \nПодбираем архитектуру нейронной сети. При этом используется библиотека [matplotlib](https://matplotlib.org/stable/api/index.html) для графического отображения результатов работы модели;
+    \n4. Обучение модели:
+    \nДанный процесс запускается с помощью встроенных функций библиотеки [tensorflow](https://www.tensorflow.org/);
+    \n5. Проверка точности:
+    \nТакже происходит с помощью встроенных функций библиотеки [tensorflow](https://www.tensorflow.org/);
+    \n6. Функции обработки изображения:
+    \nНейронная сеть представляет изображение в виде матрицы чисел. Данные функции преобразуют эту матрицу обратно в изображение, к которому мы привыкли. 
+    \nА также позволяют редактировать изображение с целью улучшения распознавания цифры. Библиотека [Python Imaging Library](https://pypi.org/project/Pillow/);
+    \n7. Загрузка изображения: 
+    \nПроизводится студентами РАНХиГС, непосредственно выполняющими лабораторную работу. Необходимо взять карточку с цифрой, поднести к 
+    \nкамере и нажать на кнопку "Сделать фото" (Для выполнения работы потребуется веб-камера);
+    \n8. Проверка:
+    \nПровести визуальную оценку точности распознавания цифры нейронной сетью;
+    \n9. Корректировка:
+    \nС помощью инструментов, предоставленных программой, скорректировать изображение и распознать;
+    \n10. Приложение Streamlit:
+    \nОформление микросервиса Streamlit, выгрузка на сервер: проводится сотрудником лаборатории, используется студентами РАНХиГС
     \nС использованием библиотеки [streamlit](https://docs.streamlit.io/library/get-started)
     """)
 
