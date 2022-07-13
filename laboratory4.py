@@ -5,6 +5,10 @@ from PIL import Image, ImageEnhance, ImageFilter
 import numpy as np
 from tensorflow.keras.models import load_model
 
+
+model_2d = load_model('/app/laboratory3/mnist_2d.h5')    
+file_path = '/app/laboratory3/your_file_image.png'
+
 #st.set_page_config(layout="wide")
 #st.title("Распознавание рукописных цифр искусственной нейронной сетью (ИНС)")
 
