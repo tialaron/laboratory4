@@ -5,8 +5,15 @@ from PIL import Image, ImageEnhance, ImageFilter
 import numpy as np
 from tensorflow.keras.models import load_model
 
-st.set_page_config(layout="wide")
-st.title("Распознавание рукописных цифр искусственной нейронной сетью (ИНС)")
+#st.set_page_config(layout="wide")
+#st.title("Распознавание рукописных цифр искусственной нейронной сетью (ИНС)")
+
+st.markdown('''<h1 style='text-align: center; color: #F64A46;'
+            >Распознавание рукописных цифр искусственной нейронной сетью (ИНС)</h1>''', 
+            unsafe_allow_html=True)
+
+img_start = Image.open('/app/laboratory4/pictures/one_digit.png') #
+st.image(img_start, use_column_width='auto') #width=450
 
 txt = st.text_area("Искусственная нейронная сеть", """Искусственная нейронная сеть - это математическая модель настоящей нейронной сети, 
     то есть мозга. На практике, это обучаемый под требуемую задачу инструмент.
