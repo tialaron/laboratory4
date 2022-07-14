@@ -91,7 +91,9 @@ st.write('Поднесите цифру к видеокамере так, что
          'окошке, располагалась в центре и была хорошо освещена, '
          'а другой рукой возьмите мышь и щёлкните на кнопку под изображением, полученным с камеры, чтобы сделать снимок цифры.')
 
-img_file_buffer = st.camera_input("Сделать снимок")
+#img_file_buffer = st.camera_input("Take a picture")
+
+img_file_buffer = st.camera_input("Take picture")
 if img_file_buffer is not None:
             img = Image.open(img_file_buffer)
             img_array = np.array(img)
