@@ -93,7 +93,7 @@ st.write('Поднесите цифру к видеокамере так, что
 st.write('Пункт 3.')
 st.write('Другой рукой возьмите мышь и щёлкните на кнопку под изображением, полученным с камеры, чтобы сделать снимок цифры.')
 
-img_file_buffer = st.camera_input("Take a picture")
+img_file_buffer = st.camera_input("Сделать снимок")
 if img_file_buffer is not None:
             img = Image.open(img_file_buffer)
             img_array = np.array(img)
