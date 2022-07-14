@@ -82,31 +82,28 @@ st.write('  Возможность распознавать образы явл�
 
 st.write('Пункт 1.')
 st.write('Возьмите любую из предложенных цифр.'
-         'Эта цифра похожа на цифры обучающего набора, в чём можешь убедиться, сравнив её '
+         'Эта цифра похожа на цифры обучающего набора, в чём можете убедиться, сравнив её '
          'с цифрами образцового набора на экране.')
 st.image('/app/laboratory4/pictures/digits.png')
 
-col1, col2 = st.columns(2)
-with col1:
-            with st.expander('Пункт 3.'):
-                        st.write('Поднеси цифру к видеокамере так, чтобы она занимала большую часть экрана видео в '
-                                 'окошке, располагалась в центре и была хорошо освещена.')
+st.write('Пункт 2.'):
+st.write('Поднесите цифру к видеокамере так, чтобы она занимала большую часть экрана видео в '
+         'окошке, располагалась в центре и была хорошо освещена.')
 
-            with st.expander('Пункт 4.'):
-                        st.write('Другой рукой возьми мышь и щёлкни на кнопку, чтобы сделать снимок цифры.')
+st.write('Пункт 3.'):
+st.write('Другой рукой возьмите мышь и щёлкните на кнопку под изображением, полученным с камеры, чтобы сделать снимок цифры.')
 
-with col2: 
-            img_file_buffer = st.camera_input("Take a picture")
-            if img_file_buffer is not None:
-                        img = Image.open(img_file_buffer)
-                        img_array = np.array(img)
-                        img_height, img_width = img_array.shape[0], img_array.shape[1]
-                        img_center = int(img_width / 2)
-                        left_border = int(img_center - img_height / 2)
-                        right_border = int(img_center + img_height / 2)
-                        img_array1 = img_array[:, left_border:right_border, :]
-                        im = Image.fromarray(img_array1)
-                        im.save(file_path)
+img_file_buffer = st.camera_input("Take a picture")
+if img_file_buffer is not None:
+            img = Image.open(img_file_buffer)
+            img_array = np.array(img)
+            img_height, img_width = img_array.shape[0], img_array.shape[1]
+            img_center = int(img_width / 2)
+            left_border = int(img_center - img_height / 2)
+            right_border = int(img_center + img_height / 2)
+            img_array1 = img_array[:, left_border:right_border, :]
+            im = Image.fromarray(img_array1)
+            im.save(file_path)
             
             
 with st.expander('Пункт 5.'):
